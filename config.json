@@ -1,0 +1,14 @@
+{
+	"db":{
+		"server":"localhost",
+		"port":27017,
+		"login":"",
+		"password":"",
+		"databaseName" : "highscore",
+		"collectionName" : "highscore"
+	},
+	"api":{
+		"server":"0.0.0.0",
+		"port":3000
+	}
+}
