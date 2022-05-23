@@ -19,28 +19,34 @@ This api its using `Nest.js`,`Node.js` and `MongoDB`.
 
 ## Endpoints
 
-- `/ping`
+- `api/ping`
 	- method: GET
 	- returns `pong`
-- `/top`
+- `api/top`
 	- method: GET
 	- returns a json string with the top 10 best players
-- `get/all`
+	- Example
+		- `server/api/get/all`
+		- `[{position:1,name:"AAA",score:123456789},...,{position:10,name:"ZZZ",score:9}]`
+- `api/get/all`
 	- method: GET
 	- returns a json string with all the players. Already sorted. 
-- `get/:start/:end`
+	- Example
+		- `server/api/get/all`
+		- `[{position:1,name:"AAA",score:123456789},...,{position:50,name:"ZZZ",score:9}]`
+- `api/get/:start/:end`
 	- method: GET
 	- returns a json string with all players between start and end(inclusive)
 	- Example
-		- `server/games/get/0/10`
+		- `server/api/get/0/10`
 		- `[{position:1,name:"AAA",score:123456789},...,{position:10,name:"ZZZ",score:9}]`
-- `get/:playername`
+- `api/get/:playername`
 	- method: GET
 	- returns a json string with the player highscore
 	- Example:
-		- `server/games/get/AAA`
+		- `server/api/get/AAA`
 		- `{position:1,name:"AAA",score:123456789}`
-- `/add`
+- `api/add`
 	- method: POST
 	- body:
 		```json
@@ -50,7 +56,7 @@ This api its using `Nest.js`,`Node.js` and `MongoDB`.
 	- try to add a new score
 	- Example:
 		```powershell
-		Invoke-WebRequest -Uri "" -Method Post -Body @{name="AAA";score=200;}
+		Invoke-WebRequest -Uri "server/api/add" -Method Post -Body @{name="AAA";score=200;}
 		```
 	- responses
 		- 400 : bad request

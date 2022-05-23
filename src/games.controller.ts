@@ -1,8 +1,6 @@
 import { Controller, Get, Req, Post, Param, Body, Res, HttpStatus } from '@nestjs/common';
 import {Request,Response} from "express";
 
-// import {getTop10fromDB,updatePlayerScore, checkIfScoreItsBetterThanBefore, playerIsAlreadyOnDB, createNewPlayer, getPlayer, getAllFromDB, getAllBetween} from "./Database"
-
 import * as DB from "./Database"
 
 export interface PlayerData{
@@ -10,7 +8,7 @@ export interface PlayerData{
 	score:number
 }
 
-@Controller('games')
+@Controller('api')
 export class GamesController{
 
 	@Get()
@@ -31,7 +29,7 @@ export class GamesController{
 		return "pong"
 	}
 
-	@Get('get/all')
+	@Get('/all')
 	async getAll()
 	{
 		return DB.getAllFromDB()
@@ -61,7 +59,7 @@ export class GamesController{
 		return "player not found"
 	}
 
-	@Post('/add')
+	@Post('add')
 	async AddScore(@Body() body:PlayerData,@Res() res:Response)
 	{
 		if (!this.checkRequest(body)) {
