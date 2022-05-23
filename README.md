@@ -13,7 +13,7 @@ This api its using `Nest.js`,`Node.js` and `MongoDB`.
 - setup your mongodb database, with authorization enabled.
 - `git clone https://github.com/ussaohelcim/Highscore.git`  
 - `npm install`  
-- config the config file  
+- setup the `config.json` file  
 - `npm run start`  
 - Make requests to the endpoints  
 
@@ -67,7 +67,6 @@ This api its using `Nest.js`,`Node.js` and `MongoDB`.
 - Use numbers instead of string to search for players
 - Replace config.json with .env
 - Add security  
-- Add HTTPS  
 - Add unit tests
 - Add docker stuff
 - C# and Python SDKs 
