@@ -4,10 +4,15 @@ import { AppModule } from './app.module';
 import {MongoClient} from 'mongodb'
 
 import 'dotenv/config'
+import { NestApplicationOptions } from '@nestjs/common';
+
+import * as fs from "fs"
 
 interface IApi{
   hostname:string
   port:number
+  certPath:string
+  privateKeyPath:string
 }
 
 interface IDb{
@@ -25,16 +30,25 @@ interface IConfig{
 }
 
 async function bootstrap() {
-  
-  const app = await NestFactory.create(AppModule);
+  const options:NestApplicationOptions = {
+    httpsOptions:{
+      key: fs.readFileSync(config.api.privateKeyPath),
+      cert: fs.readFileSync(config.api.certPath)
+    }
+  }
+  const app = await NestFactory.create(AppModule,options);
   app.enableCors()
+  
   await app.listen(config.api.port,config.api.hostname);
 
   console.log("connected to",`mongodb://${config.db.server}:${config.db.port}/`)
-  console.log("api exposed at",`${config.api.hostname}:${config.api.port}`)
-}
 
-//console.log(process.env.TESTE)//
+  app.getUrl().then((res)=>{
+    console.log("api exposed at",`${res}`)
+  })
+  
+
+}
 
 export const config:IConfig = require("../config.json")
 
