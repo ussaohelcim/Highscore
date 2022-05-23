@@ -10,13 +10,12 @@ This api its using `Nest.js`,`Node.js` and `MongoDB`.
 
 # How to use
 
-`git clone`  
-`npm install`  
-config the config file  
-`npm run start`  
-Make requests to the endpoints  
-
-You can get more help [here](/docs/docs.md).
+- setup your mongodb database, with authorization enabled.
+- `git clone https://github.com/ussaohelcim/Highscore.git`  
+- `npm install`  
+- config the config file  
+- `npm run start`  
+- Make requests to the endpoints  
 
 ## Endpoints
 
@@ -71,4 +70,4 @@ You can get more help [here](/docs/docs.md).
 - Add HTTPS  
 - Add unit tests
 - Add docker stuff
-- C# SDKs 
+- C# and Python SDKs 
