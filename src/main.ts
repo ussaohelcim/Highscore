@@ -64,4 +64,4 @@ mClient.connect((err,res)=>{
 
 const db = mClient.db(config.db.databaseName)
 
-export let highscore = db.collection(config.db.collectionName)
+export const highscore = db.collection(config.db.collectionName)
