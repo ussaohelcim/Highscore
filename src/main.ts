@@ -46,18 +46,22 @@ async function bootstrap() {
   app.getUrl().then((res)=>{
     console.log("api exposed at",`${res}`)
   })
-  
-
 }
 
 export const config:IConfig = require("../config.json")
 
-const mClient = new MongoClient(`mongodb://${config.db.login}:${config.db.password}@${config.db.server}:${config.db.port}/`)
+const connectionString = `mongodb://${config.db.login}:${config.db.password}@${config.db.server}:${config.db.port}`
+const mClient = new MongoClient(connectionString)
 
-mClient.connect()
+mClient.connect((err,res)=>{
+  if(err)
+    console.log("Cant connect to MongoDB",err)
+  else{
+    console.log("Connected to MongoDB.\n")
+    bootstrap();
+  }
+})
 
 const db = mClient.db(config.db.databaseName)
 
-export const highscore = db.collection(config.db.collectionName)
-
-bootstrap();
+export let highscore = db.collection(config.db.collectionName)
