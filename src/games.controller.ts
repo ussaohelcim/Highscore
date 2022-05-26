@@ -34,6 +34,12 @@ export class GamesController{
 	{
 		return DB.getAllFromDB()
 	}
+	
+	@Get('/count')
+	async countGames()
+	{
+		return DB.countDocuments()
+	}
 
 	@Get('get/:start/:end')
 	async getBetween(@Param() params)

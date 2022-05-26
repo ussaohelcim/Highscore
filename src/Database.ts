@@ -9,6 +9,12 @@ export async function playerIsAlreadyOnDB(playerName:string)
 	return gamesCount > 0
 }
 
+export async function countDocuments() {
+	return await highscore.countDocuments().then((res)=>{
+		return res
+	})
+}
+
 export async function updatePlayerScore(data:PlayerData) {
 	const playerFound = await playerIsAlreadyOnDB(data.name)
 
