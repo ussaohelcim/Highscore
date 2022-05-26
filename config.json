@@ -11,6 +11,7 @@
 		"hostname":"localhost",
 		"port":3000,
 		"certPath":"",
-		"privateKeyPath":""
+		"privateKeyPath":"",
+		"corsEnabled":false
 	}
 }

@@ -13,6 +13,7 @@ interface IApi{
   port:number
   certPath:string
   privateKeyPath:string
+  corsEnabled:boolean
 }
 
 interface IDb{
@@ -37,7 +38,8 @@ async function bootstrap() {
     }
   }
   const app = await NestFactory.create(AppModule,options);
-  app.enableCors()
+
+  if(config.api.corsEnabled) app.enableCors()
   
   await app.listen(config.api.port,config.api.hostname);
 
