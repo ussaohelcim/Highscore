@@ -61,8 +61,7 @@ export class GamesController{
 	getPlayerPosition(@Param() params)
 	{
 		let player = DB.getPlayer(params.playername)
-		if(player) return player
-		return {name:params.playername,position:0,score:0}
+		return player
 	}
 
 	@Post('add')

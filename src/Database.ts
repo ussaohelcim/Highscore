@@ -116,6 +116,10 @@ export async function getPlayer(playerName:string) {
 		}
 		
 	}
-	return null
+	return {
+		position: 0,
+		name: playerName,
+		score: 0
+	}
 	
 }
