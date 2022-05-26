@@ -62,7 +62,7 @@ export class GamesController{
 	{
 		let player = DB.getPlayer(params.playername)
 		if(player) return player
-		return "player not found"
+		return {name:params.playername,position:0,score:0}
 	}
 
 	@Post('add')
