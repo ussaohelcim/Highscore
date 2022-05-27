@@ -17,6 +17,8 @@ This api its using `Nest.js`,`Node.js` and `MongoDB`.
 - `npm run start`  
 - Make requests to the endpoints  
 
+Shit Youtube tutorial: https://www.youtube.com/watch?v=NzhoLQ_ldZc  
+
 ## Endpoints
 
 - `api/ping`
