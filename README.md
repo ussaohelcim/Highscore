@@ -30,7 +30,7 @@ Shit Youtube tutorial: https://www.youtube.com/watch?v=NzhoLQ_ldZc
 	- Example
 		- `server/api/get/all`
 		- `[{position:1,name:"AAA",score:123456789},...,{position:10,name:"ZZZ",score:9}]`
-- `api/get/all`
+- `api/all`
 	- method: GET
 	- returns a json string with all the players. Already sorted. 
 	- Example
